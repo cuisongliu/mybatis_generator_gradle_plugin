@@ -35,6 +35,7 @@
     apply plugin: "com.cuisongliu.plugin.mybatis-generator"
     
 为Gradle 2.1中引入的新的，潜在的插件机制构建脚本代码段
+
     plugins {
       id "com.cuisongliu.plugin.mybatis-generator" version "0.9.4"
     }
@@ -205,76 +206,7 @@
 
 <h3 id="run-mbg-task">运行mbg任务</h3>
 
-1. 加入generatorConfig.xml到你的执行模块中去
-   ```
-   <?xml version="1.0" encoding="UTF-8"?>
-   
-   <!DOCTYPE generatorConfiguration
-     PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-     "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
-   
-   <generatorConfiguration>
-   	<!-- mybatis-generator:generate -->
-   	<!--targetRuntime="MyBatis3"-->
-   	<context id="MysqlTables" targetRuntime="tk.mybatis.mapper.generator.TkMyBatis3Impl">
-   
-   		<!-- 生成的Java文件的编码 -->
-   	    <property name="javaFileEncoding" value="UTF-8"/>
-   	    <!-- 格式化java代码-->
-   	    <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/> 
-   	    <!-- 格式化XML代码 -->
-   	    <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
-   		<plugin type="${xml.mapperPlugin}">
-               <property name="mappers" value="${xml.mapperMapper}"/>
-   			<!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
-   			<property name="caseSensitive" value="true"/>
-           </plugin>
-   		<!-- 去掉生成出来的代码的注解 -->
-   		<commentGenerator>
-   			<property name="suppressAllComments" value="true" />
-   			<property name="suppressDate" value="true" />
-   		</commentGenerator>
-   		<jdbcConnection driverClass="${jdbc.driver}"
-   			connectionURL="${jdbc.url}"
-   			userId="${jdbc.username}"
-   			password="${jdbc.password}" />
-   		
-   		<javaTypeResolver>
-   			<property name="forceBigDecimals" value="true" />
-   		</javaTypeResolver>
-   		
-   		<javaModelGenerator targetPackage="${xml.modelPackage}"
-   			targetProject="${xml.javaProject}">
-   			<property name="enableSubPackages" value="true" />
-   			<property name="trimStrings" value="true" />
-   		</javaModelGenerator>
-   
-   		<sqlMapGenerator 
-   			targetPackage="${xml.xmlPackage}"
-   			targetProject="${xml.resourcesProject}" >
-   			<property name="enableSubPackages" value="false" />
-   		</sqlMapGenerator>
-   		
-   		<javaClientGenerator 
-   			targetPackage="${xml.mapperPackage}"
-   			targetProject="${xml.javaProject}"
-   			type="XMLMAPPER" >
-   		
-   		</javaClientGenerator>
-   		<!-- 这里设置表的相关信息 -->
-   		<table tableName="m_phone_log" domainObjectName="PhoneLog1" mapperName="{0}Dao"
-   			enableCountByExample="false" enableUpdateByExample="false"
-   			enableDeleteByExample="false" enableSelectByExample="false" modelType="flat">
-   			<property name="useActualColumnNames" value="false" />
-   			<generatedKey column="" sqlStatement="MySql" identity="true"/>
-   			<!--<generatedKey column="ID"-->
-   				<!--sqlStatement="SELECT LAST_INSERT_ID()" />-->
-   		</table>
-   	</context>
-   
-   </generatorConfiguration>
-   ```
-   设置table信息中的变量即可,文件中.
+1. 加入[generatorConfig.xml](generatorConfig.xml)到你的执行模块中去,设置table信息中的变量即可,文件中.
    
 2. 在build.gradle中加入[参数配置](#set-mbg-settings)
 3. 在build.gradle所在目录执行 ```gradle mbg ```
