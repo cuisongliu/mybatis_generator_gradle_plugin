@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/iamthechad/javadoc2dash.svg)](https://travis-ci.org/cuisongliu/gradle-plugins)
-[![Dependency Status](https://www.versioneye.com/user/projects/5913d942a786140061505272/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5913d942a786140061505272)
+[![Build Status](https://travis-ci.org/cuisongliu/mybatis_generator_gradle_plugin.svg?branch=master)](https://travis-ci.org/cuisongliu/mybatis_generator_gradle_plugin)
+[![Dependency Status](https://www.versioneye.com/user/projects/5917bcd1e1638f0051a0a624/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5917bcd1e1638f0051a0a624)
 [![license](https://img.shields.io/badge/gradle-3.3-brightgreen.svg)](https://gradle.org)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/mit-license.php)
 
@@ -28,7 +28,7 @@ Build script snippet for use in all Gradle versions:
         }
       }
       dependencies {
-        classpath "com.cuisongliu.plugin:mybatis-generator:1.0"
+        classpath "com.cuisongliu.plugin:mybatis-generator:0.9.4"
       }
     }
 
@@ -37,7 +37,7 @@ Build script snippet for use in all Gradle versions:
 Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
 
     plugins {
-      id "com.cuisongliu.plugin.mybatis-generator" version "1.0"
+      id "com.cuisongliu.plugin.mybatis-generator" version "0.9.4"
     }
 
 
