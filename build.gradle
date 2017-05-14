@@ -1,0 +1,8 @@
+apply from: "$rootDir/gradle/subprojects.gradle"
+apply from: "$rootDir/gradle/mybatis-generator.gradle"
+task printEnv {
+    println "current project name:[$project.name]"
+    repositories.each {
+        println "repository: ${it.name} ('${it.url}')"
+    }
+}
