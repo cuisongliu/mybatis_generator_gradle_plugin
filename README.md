@@ -10,15 +10,12 @@
  
 
 
-<h1 id="gradle-plugin">Gradle插件</h1>
 
- 这个项目有一些gradle的插件集合.到目前位置有[mbg](#mbg)插件等等.
-[English](README_EN.md)
 <h2 id="mbg">mybatis生成器gradle插件(MBG)</h2>
 
 这个插件是基于https://github.com/mybatis/generator maven插件做的.这个gradle插件是mybatis生成插件.
 这个插件拥有了mybatisGeneratorPlugin(mbg)的全部功能,这个插件实现在gradle3.3上使用groovy实现.
-
+[English](README_EN.md)
 
 <h3 id="add-mbg-to-project">添加mbg插件到你的项目</h3>
 使用在所有Gradle版本的构建脚本片段:
