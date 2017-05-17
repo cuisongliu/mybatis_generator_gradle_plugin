@@ -3,22 +3,21 @@
 [![license](https://img.shields.io/badge/gradle-3.3-brightgreen.svg)](https://gradle.org)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/mit-license.php)
 
-- [mybatis生成器gradle插件(MBG)](#mbg)
-    - [添加mbg插件到你的项目](#add-mbg-to-project)
-    - [参数配置](#set-mbg-settings)
-    - [运行mbg任务](#run-mbg-task)
+- [MyBatis Generator Gradle Plugin(MBG)](#mbg)
+    - [Add the plugin to you project](#add-mbg-to-project)
+    - [Specify settings](#set-mbg-settings)
+    - [Run the mbg task](#run-mbg-task)
  
 
 
 
-<h2 id="mbg">mybatis生成器gradle插件(MBG)</h2>
+<h2 id="mbg">MyBatis Generator Gradle Plugin(MBG)</h2>
+This plugin is based on https://github.com/mybatis/generator. This is a gradle plugin of mybatisGeneratorPlugin(mbg). 
+This plugin has all the features of mybatisGeneratorPlugin(mbg), but the plugin realization of groovy from gradle3.3.
+[简体中文](README_ZH.md)
 
-这个插件是基于https://github.com/mybatis/generator maven插件做的.这个gradle插件是mybatis生成插件.
-这个插件拥有了mybatisGeneratorPlugin(mbg)的全部功能,这个插件实现在gradle3.3上使用groovy实现.
-[English](README_EN.md)
-
-<h3 id="add-mbg-to-project">添加mbg插件到你的项目</h3>
-使用在所有Gradle版本的构建脚本片段:
+<h3 id="add-mbg-to-project">Add the plugin to you project</h3>
+Build script snippet for use in all Gradle versions:
 
 
     buildscript {
@@ -34,14 +33,14 @@
 
     apply plugin: "com.cuisongliu.plugin.mybatis-generator"
     
-为Gradle 2.1中引入的新的，潜在的插件机制构建脚本代码段
+Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
 
     plugins {
       id "com.cuisongliu.plugin.mybatis-generator" version "0.9.4"
     }
 
 
-<h3 id="set-mbg-settings">参数配置</h3>
+<h3 id="set-mbg-settings">Specify settings</h3>
 
     mbg {
       overwrite = false
@@ -62,166 +61,168 @@
       }
     }
     
-如果没有设置，插件试图智能使用默认值.
+If no settings are provided, the plugin tries to use sensible defaults.
 
 <table>
     <thead>
     <tr>
-        <th colspan="2">属性名</td>
-        <th>类型</td>
-       	<th>描述</td>
-       	<th>默认值</td>
+        <th colspan="2">Setting Name</td>
+        <th>Type</td>
+       	<th>Description</td>
+       	<th>Default</td>
     </tr>
     </thead>
 	<tbody>
 	<tr>
 		<td colspan="2"><code>overwrite</code></td>
 		<td><code>boolean</code></td>
-		<td>是否覆盖已经生成的xml或者代码 </td>
+		<td>Specifies whether the mojo overwrites existing files. Default is true. </td>
 		<td><code>true</code></td>
 	</tr>
 	<tr>
         <td colspan="2"><code>generatorFile</code></td>
         <td><code>String</code></td>
-        <td>mbg的配置文件位置</td>
+        <td>Location of the configuration file.</td>
         <td><code>generatorConfig.xml</code></td>
     </tr>
     <tr>
         <td colspan="2"><code>sqlScript</code></td>
         <td><code>String</code></td>
-        <td>要在生成代码之前运行的 SQL 脚本文件的位置.</td>
+        <td>Location of a SQL script file to run before generating code.</td>
         <td><code>null</code></td>
     </tr>
     <tr>
         <td colspan="2"><code>consoleable</code></td>
         <td><code>boolean</code></td>
-        <td>如果指定该参数，执行过程会输出到控制台。</td>
+        <td>Specifies whether  progress messages to the console.</td>
         <td><code>false</code></td>
     </tr>
     <tr>
         <td colspan="2"><code>skip</code></td>
         <td><code>boolean</code></td>
-        <td>是否跳过生成代码的mbg的任务</td>
+        <td>Skip generator.</td>
         <td><code>false</code></td>
     </tr>
     <tr>
         <td colspan="2"><code>contexts</code></td>
         <td><code>String</code></td>
-        <td>如果指定了该参数，逗号隔开的这些context会被执行。</td>
+        <td>Comma delimited list of contexts to generate.</td>
         <td><code>null</code></td>
     </tr>
     <tr>
         <td colspan="2"><code>tableNames</code></td>
         <td><code>String</code></td>
-        <td>如果指定了该参数，逗号隔开的这个表会被运行。</td>
+        <td>Comma delimited list of table names to generate.</td>
         <td><code>null</code></td>
     </tr>
-</tbody></table>
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">属性名</td>
-        <th>类型</td>
-       	<th>描述</td>
-       	<th>默认值</td>
-    </tr>
+    </tbody></table>
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2">Setting Name</td>
+            <th>Type</td>
+            <th>Description</td>
+            <th>Default</td>
+        </tr>
     </thead>
     <tbody>
 	<tr>
 		<td rowspan="4"><code>jdbc</code></td>
 		<td><code>driver</code></td>
 		<td><code>String</code></td>
-		<td>jdbc的驱动类.<em><strong>不能为空</td>
+		<td>JDBC Driver name.<em><strong>Not Null</td>
 		<td><code>null</code></td>
 	</tr>
 	<tr>
 		<td><code>url</code></td>
 		<td><code>String</code></td>
-		<td>jdbc的数据库url.<em><strong>不能为空</td>
+		<td>JDBC URL.<em><strong>Not Null</td>
 		<td><code>null</code></td>
 	</tr>
 	<tr>
         <td><code>username</code></td>
         <td><code>String</code></td>
-        <td>jdbc的数据库用户名.<em><strong>不能为空</td>
+        <td>JDBC user name.<em><strong>Not Null</td>
         <td><code>root</code></td>
     </tr>
     <tr>
         <td><code>password</code></td>
         <td><code>String</code></td>
-        <td>jdbc的数据库密码.<em><strong>不能为空</td>
+        <td>JDBC password.<em><strong>Not Null</td>
         <td><code>null</code></td>
     </tr>
     <tr>
         <td rowspan="7"><code>xml</code></td>
         <td><code>javaProject</code></td>
         <td><code>String</code></td>
-        <td>生成java文件所在的目录.</td>
+        <td>Mybatis generator output sources  directory.</td>
         <td><code>src/main/java</code></td>
     </tr>
     <tr>
         <td><code>resourcesProject</code></td>
         <td><code>String</code></td>
-        <td>生成xml配置文件mapper所在的目录.</td>
+        <td>Mybatis generator output resources  directory.</td>
         <td><code>src/main/resources</code></td>
     </tr>
     <tr>
         <td><code>mapperPackage</code></td>
         <td><code>String</code></td>
-        <td>mapper配置,生成的Mapper(dao)所在的包所在的位置.<em><strong>不能为空</td>
+        <td>Mybatis generator output javaClient package.<em><strong>Not Null</td>
         <td><code>null</code></td>
     </tr>
     <tr>
         <td><code>modelPackage</code></td>
         <td><code>String</code></td>
-        <td>model配置,生成的实体类所在的包所在的位置.<em><strong>不能为空</td>
+        <td>Mybatis generator output javaModel  package.<em><strong>Not Null</td>
         <td><code>null</code></td>
     </tr>
     <tr>
         <td><code>xmlPackage</code></td>
         <td><code>String</code></td>
-        <td>mapper的xml配置,生成的mapper的xml所在的包的位置.<em><strong>不能为空</td>
+        <td>Mybatis generator output  sqlMapper  package.<em><strong>Not Null</td>
         <td><code>null</code></td>
     </tr>
     <tr>
         <td><code>mapperPlugin</code></td>
         <td><code>Class<? extends PluginAdapter></code></td>
-        <td>插件信息,xml中插件的类名.<em><strong>不能为空</td>
+        <td>Mybatis generator plugin class.<em><strong>Not Null</td>
         <td>
-            <code>tk.mybatis.mapper.</code>
-            <code>generator.MapperPlugin.</code>
-            <code>class</code>
+            <code>tk.mybatis.mapper.
+            generator.MapperPlugin.
+            class</code>
         </td>
     </tr>
     <tr>
         <td><code>mapperMapper</code></td>
         <td><code>String</code></td>
-        <td>mapper配置,生成的Mapper方法的父类.<em><strong>不能为空</td>
+        <td>Mybatis generator javaClient  extends class.<em><strong>Not Null</td>
         <td>
-            <code>tk.mybatis.mapper.</code>
-            <code>common.Mapper</code>
+            <code>tk.mybatis.mapper.
+            common.Mapper</code>
         </td>
     </tr>
 </tbody></table>
 
-<h3 id="run-mbg-task">运行mbg任务</h3>
+<h3 id="run-mbg-task">Run the mbg task</h3>
 
-1. 加入[generatorConfig.xml](generatorConfig.xml)到你的执行模块中去,设置table信息中的变量即可,文件中.
-   
-2. 在build.gradle中加入[参数配置](#set-mbg-settings)
-3. 在build.gradle所在目录执行 ```gradle mbg ```
-4. 默认支持mysql,若使用oracle或者其他的数据库需要额外增加如下配置
-    ```
-        buildscript{
-            def baseUrl = "http://maven.cuisongliu.com"
-            def nexusUrl = "$baseUrl/content/groups/public/"
-            repositories {
-                mavenLocal()
-                maven { url "$nexusUrl" }
-            }
-            dependencies {
-                classpath "com.oracle:ojdbc6:11.1.0.7.0"
-            }
+1. Add [generatorConfig.xml](generatorConfig.xml) to your execution module.Set the variable in the table information.
+2. In the build.gradle file append [Specify settings](#set-mbg-settings)
+3. In the build.gradle directory execute ```gradle mbg ```
+4. The default support for mysql.If you use oracle or other database need to add the following additional configuration to 
+[Specify settings](#set-mbg-settings).
+
+```
+    buildscript{
+        def baseUrl = "http://maven.cuisongliu.com"
+        def nexusUrl = "$baseUrl/content/groups/public/"
+        repositories {
+            mavenLocal()
+            maven { url "$nexusUrl" }
         }
-    ```
-    在使用插件之前加入buildscript,配置classpath的driver依赖jar包(这里的maven地址根据情况修改)
+        dependencies {
+            classpath "com.oracle:ojdbc6:11.1.0.7.0"
+        }
+    }
+```    
+    
+   Add buildscript before using the plugin，configure the classpath driver depends on the jar package (where the maven address changes as the case may be)
