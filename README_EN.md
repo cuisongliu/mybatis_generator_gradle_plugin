@@ -208,8 +208,8 @@ If no settings are provided, the plugin tries to use sensible defaults.
 2. In the build.gradle file append [Specify settings](#set-mbg-settings)
 3. In the build.gradle directory execute ```gradle mbg ```
 4. The default support for mysql.If you use oracle or other database need to add the following additional configuration to 
-
 [Specify settings](#set-mbg-settings).
+
     ```
     buildscript{
         def baseUrl = "http://maven.cuisongliu.com"
@@ -223,5 +223,6 @@ If no settings are provided, the plugin tries to use sensible defaults.
         }
     }
     ```
+    
     
     Add buildscript before using the plugin，configure the classpath driver depends on the jar package (where the maven address changes as the case may be)
