@@ -12,7 +12,8 @@
 
 
 <h2 id="mbg">MyBatis Generator Gradle Plugin(MBG)</h2>
-This plugin is based on https://github.com/mybatis/generator. This is a gradle plugin of mybatisGeneratorPlugin(mbg). This plugin has all the features of mybatisGeneratorPlugin(mbg), but the plugin realization of groovy from gradle3.3.
+This plugin is based on https://github.com/mybatis/generator. This is a gradle plugin of mybatisGeneratorPlugin(mbg). 
+This plugin has all the features of mybatisGeneratorPlugin(mbg), but the plugin realization of groovy from gradle3.3.
 [简体中文](README.md)
 
 <h3 id="add-mbg-to-project">Add the plugin to you project</h3>
@@ -210,7 +211,7 @@ If no settings are provided, the plugin tries to use sensible defaults.
 4. The default support for mysql.If you use oracle or other database need to add the following additional configuration to 
 [Specify settings](#set-mbg-settings).
 
-    ```
+```
     buildscript{
         def baseUrl = "http://maven.cuisongliu.com"
         def nexusUrl = "$baseUrl/content/groups/public/"
@@ -222,7 +223,6 @@ If no settings are provided, the plugin tries to use sensible defaults.
             classpath "com.oracle:ojdbc6:11.1.0.7.0"
         }
     }
-    ```
+```    
     
-    
-    Add buildscript before using the plugin，configure the classpath driver depends on the jar package (where the maven address changes as the case may be)
+   Add buildscript before using the plugin，configure the classpath driver depends on the jar package (where the maven address changes as the case may be)
