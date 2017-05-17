@@ -12,8 +12,10 @@
 
 
 <h2 id="mbg">MyBatis Generator Gradle Plugin(MBG)</h2>
+
 This plugin is based on https://github.com/mybatis/generator. This is a gradle plugin of mybatisGeneratorPlugin(mbg). 
 This plugin has all the features of mybatisGeneratorPlugin(mbg), but the plugin realization of groovy from gradle3.3.
+
 [简体中文](README_ZH.md)
 
 <h3 id="add-mbg-to-project">Add the plugin to you project</h3>
