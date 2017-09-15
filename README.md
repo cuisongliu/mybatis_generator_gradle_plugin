@@ -29,7 +29,7 @@ Build script snippet for use in all Gradle versions:
         }
       }
       dependencies {
-        classpath "com.cuisongliu.plugin:mybatis-generator:0.9.4"
+        classpath "gradle.plugin.com.cuisongliu.plugin:mybatis-generator:0.9.4"
       }
     }
 
