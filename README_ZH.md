@@ -156,7 +156,7 @@
         <td><code>null</code></td>
     </tr>
     <tr>
-        <td rowspan="7"><code>xml</code></td>
+        <td rowspan="10"><code>xml</code></td>
         <td><code>javaProject</code></td>
         <td><code>String</code></td>
         <td>生成java文件所在的目录.</td>

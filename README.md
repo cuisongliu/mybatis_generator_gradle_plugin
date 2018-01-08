@@ -157,7 +157,7 @@ If no settings are provided, the plugin tries to use sensible defaults.
         <td><code>null</code></td>
     </tr>
     <tr>
-        <td rowspan="7"><code>xml</code></td>
+        <td rowspan="10"><code>xml</code></td>
         <td><code>javaProject</code></td>
         <td><code>String</code></td>
         <td>Mybatis generator output sources  directory.</td>
