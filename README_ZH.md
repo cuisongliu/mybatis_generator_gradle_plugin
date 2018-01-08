@@ -28,7 +28,7 @@
         }
       }
       dependencies {
-        classpath "gradle.plugin.com.cuisongliu.plugin:mybatis-generator:0.9.4"
+        classpath "gradle.plugin.com.cuisongliu.plugin:mybatis-generator:0.9.6"
       }
     }
 
@@ -37,7 +37,7 @@
 为Gradle 2.1中引入的新的，潜在的插件机制构建脚本代码段
 
     plugins {
-      id "com.cuisongliu.plugin.mybatis-generator" version "0.9.4"
+      id "com.cuisongliu.plugin.mybatis-generator" version "0.9.6"
     }
 
 
@@ -59,6 +59,9 @@
           mapperPackage= "com.cuisongliu.mapper"
           modelPackage = "com.cuisongliu.entity"
           xmlPackage =   "com.cuisongliu.mapper"
+          tableName ="s_system"
+          objectName ="System"
+          mapperSuffix ="Mapper"
       }
     }
     
@@ -200,6 +203,30 @@
         <td>
             <code>tk.mybatis.mapper.</code>
             <code>common.Mapper</code>
+        </td>
+    </tr>
+    <tr>
+        <td><code>tableName</code></td>
+        <td><code>String</code></td>
+        <td>mybatis生成对应的数据库表名.<em><strong>不能为空</td>
+        <td>
+            <code>null</code>
+        </td>
+    </tr>
+    <tr>
+        <td><code>objectName</code></td>
+        <td><code>String</code></td>
+        <td>mybatis生成对应的实体类名.<em><strong>不能为空</td>
+        <td>
+            <code>null</code>
+        </td>
+    </tr>
+    <tr>
+        <td><code>mapperSuffix</code></td>
+        <td><code>String</code></td>
+        <td>mybatis生成Mapper的后缀</td>
+        <td>
+            <code>Mapper</code>
         </td>
     </tr>
 </tbody></table>

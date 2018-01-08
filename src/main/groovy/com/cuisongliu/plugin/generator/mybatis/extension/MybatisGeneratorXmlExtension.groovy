@@ -77,5 +77,21 @@ class MybatisGeneratorXmlExtension {
      * 默认值为tk.mybatis.mapper.common.Mapper
      */
     String mapperMapper = "tk.mybatis.mapper.common.Mapper"
+    /**
+     * tableName需要生成的表名<br/>
+     * 默认值为空,必须设置
+     */
+    String tableName =null
+    /**
+     * objectName需要生成的实体类名<br/>
+     * 默认值为空,必须设置
+     */
+    String objectName=null
+    /**
+     * omapper配置,生成的Mapper类的后缀<br/>
+     * 默认值为Mapper
+     */
+    String mapperSuffix="Mapper"
+
 
 }

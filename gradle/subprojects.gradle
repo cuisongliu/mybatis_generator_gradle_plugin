@@ -40,7 +40,7 @@ targetCompatibility = 1.7
 
 // java编译的时候缺省状态下会因为中文字符而失败
 [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
-version = "0.9.5"
+version = "0.9.6"
 group ="com.cuisongliu.plugin"
 def baseUrl = "http://maven.cuisongliu.com"
 def nexusUrl = "$baseUrl/content/groups/public/"

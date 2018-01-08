@@ -214,5 +214,21 @@ class MybatisGenerator extends DefaultTask {
             throw new GradleException(errorMsg)
         }
         xmlParams["xml.xmlPackage"] = project.mbg.xml.xmlPackage
+
+        if (!StringUtility.stringHasValue(project.mbg.xml.tableName)) {
+            errorMsg = "变量mbg.xml.tableName<String>未设置,请设置后重试."
+            println(errorMsg)
+            throw new GradleException(errorMsg)
+        }
+        xmlParams["xml.tableName"] = project.mbg.xml.tableName
+
+        if (!StringUtility.stringHasValue(project.mbg.xml.objectName)) {
+            errorMsg = "变量mbg.xml.objectName<String>未设置,请设置后重试."
+            println(errorMsg)
+            throw new GradleException(errorMsg)
+        }
+        xmlParams["xml.objectName"] = project.mbg.xml.objectName
+
+        xmlParams["xml.mapperName"] = project.mbg.xml.objectName+project.mbg.xml.mapperSuffix
     }
 }

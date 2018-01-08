@@ -29,7 +29,7 @@ Build script snippet for use in all Gradle versions:
         }
       }
       dependencies {
-        classpath "gradle.plugin.com.cuisongliu.plugin:mybatis-generator:0.9.4"
+        classpath "gradle.plugin.com.cuisongliu.plugin:mybatis-generator:0.9.6"
       }
     }
 
@@ -38,7 +38,7 @@ Build script snippet for use in all Gradle versions:
 Build script snippet for new, incubating, plugin mechanism introduced in Gradle 2.1:
 
     plugins {
-      id "com.cuisongliu.plugin.mybatis-generator" version "0.9.4"
+      id "com.cuisongliu.plugin.mybatis-generator" version "0.9.6"
     }
 
 
@@ -60,6 +60,9 @@ Build script snippet for new, incubating, plugin mechanism introduced in Gradle 
           mapperPackage= "com.cuisongliu.mapper"
           modelPackage = "com.cuisongliu.entity"
           xmlPackage =   "com.cuisongliu.mapper"
+          tableName ="s_system"
+          objectName ="System"
+          mapperSuffix ="Mapper"
       }
     }
     
@@ -201,6 +204,30 @@ If no settings are provided, the plugin tries to use sensible defaults.
         <td>
             <code>tk.mybatis.mapper.
             common.Mapper</code>
+        </td>
+    </tr>
+    <tr>
+        <td><code>tableName</code></td>
+        <td><code>String</code></td>
+        <td>Mybatis generator db table name.<em><strong>Not Null</td>
+        <td>
+            <code>null</code>
+        </td>
+    </tr>
+    <tr>
+        <td><code>objectName</code></td>
+        <td><code>String</code></td>
+        <td>Mybatis generator object class name.<em><strong>Not Null</td>
+        <td>
+            <code>null</code>
+        </td>
+    </tr>
+    <tr>
+        <td><code>mapperSuffix</code></td>
+        <td><code>String</code></td>
+        <td>Mybatis generator javaClient mapper suffix.</td>
+        <td>
+            <code>Mapper</code>
         </td>
     </tr>
 </tbody></table>
