@@ -86,7 +86,7 @@ class MybatisGenerator extends DefaultTask {
 
             myBatisGenerator.generate(new GradleProgressCallback(project.mbg.consoleable), contextsToRun, fullyqualifiedTables);
         } catch (Exception e) {
-            throw new GradleException(e.getMessage());
+            throw new GradleException(e.getMessage(), e);
         }
         for (String error : warnings) {
             println(error);
