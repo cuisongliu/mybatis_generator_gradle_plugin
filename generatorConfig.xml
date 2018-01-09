@@ -53,7 +53,7 @@
 
         </javaClientGenerator>
         <!-- 这里设置表的相关信息 -->
-        <table tableName="m_phone_log" domainObjectName="PhoneLog1" mapperName="{0}Dao"
+        <table tableName="${xml.tableName}" domainObjectName="${xml.objectName}" mapperName="${xml.mapperName}"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" modelType="flat">
             <property name="useActualColumnNames" value="false"/>
